@@ -1,1 +1,16 @@
 CREATE DATABASE IF NOT EXISTS Sales;
+
+
+
+
+USE Sales;
+
+CREATE TABLE sales
+(
+purchase_number INT NOT NULL PRIMARY KEY auto_increment,
+date_of_purchase DATE NOT NULL,
+cutomer_id INT,
+item_code VARCHAR(10) NOT NULL
+);
+
+
