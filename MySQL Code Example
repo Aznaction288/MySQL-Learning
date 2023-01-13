@@ -1,10 +1,5 @@
-CREATE DATABASE IF NOT EXISTS Sales;
-
-
-
-
 USE Sales;
-
+DROP TABLE Sales;
 CREATE TABLE sales
 (
 purchase_number INT NOT NULL PRIMARY KEY auto_increment,
@@ -13,4 +8,47 @@ cutomer_id INT,
 item_code VARCHAR(10) NOT NULL
 );
 
+Select * FROM sales.Sales;
 
+DROP TABLE Sales;
+
+CREATE TABLE sales
+(
+purchase_number INT NOT NULL auto_increment,
+date_of_purchase DATE NOT NULL,
+customer_id INT,
+item_code VARCHAR(10) NOT NULL,
+PRIMARY KEY(purchase_number)
+);
+
+CREATE TABLE customers
+(
+customer_id INT,
+first_name varchar(255),
+last_name varchar(255),
+email_address varchar(255),
+number_of_complaints INT,
+primary key(customer_id)
+);
+
+CREATE TABLE items
+(
+item_code varchar(255),
+item varchar(255),
+unit_price NUMERIC(10,2),
+company_id varchar(255),
+primary key(item_code)
+);
+
+CREATE TABLE companies
+(
+company_id varchar(255) PRIMARY KEY,
+company_name varchar(255),
+headquarters_phone_number INT(12)
+);
+
+ALTER TABLE sales
+ADD FOREIGN KEY (customer_id) REFERENCES customers(customer_id) ON DELETE CASCADE;
+
+ALTER TABLE sales
+DROP FOREIGN KEY (customer_id);
